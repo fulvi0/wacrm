@@ -8,7 +8,8 @@ import { ImageResponse } from "next/og";
 // This route takes precedence over src/app/favicon.ico, which is the
 // Next.js default and can stay on disk harmlessly (or be removed).
 
-export const runtime = "edge";
+// Runs on the default Node.js runtime. OpenNext/Cloudflare Workers does not
+// support Next.js's edge runtime; `ImageResponse` works fine on Node.
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 

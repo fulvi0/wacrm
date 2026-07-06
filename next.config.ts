@@ -126,3 +126,9 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Cloudflare (OpenNext) — makes Cloudflare bindings from wrangler.jsonc /
+// .dev.vars available to `next dev`. No-op outside local development.
+// See DEPLOY_CLOUDFLARE.md.
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+initOpenNextCloudflareForDev();

@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wacrm",
+  "main": ".open-next/worker.js",
+  // nodejs_compat is required by OpenNext (the app uses node:crypto, etc.).
+  // global_fetch_strictly_public is recommended by the OpenNext Cloudflare adapter.
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Lets the worker invoke itself (used by OpenNext for some server actions).
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "wacrm" }],
+  "observability": { "enabled": true },
+  // Non-secret vars. NEXT_PUBLIC_* are ALSO inlined at build time (see .env.local);
+  // they live here too so server-side runtime code (middleware) can read them.
+  // Secrets (SUPABASE_SERVICE_ROLE_KEY, META_APP_SECRET, ENCRYPTION_KEY) are NOT
+  // put here — set them with `wrangler secret put` (see DEPLOY_CLOUDFLARE.md).
+  "vars": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://yohiyzjgjntgbzubwlwz.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_v4Hpif865aE1iXKzgyT03g_Jj4lxgYQ",
+    "META_APP_ID": "1773799550459839"
+    // "NEXT_PUBLIC_SITE_URL": "https://wacrm.<subdomain>.workers.dev"  // add after first deploy, then redeploy
+  }
+}
