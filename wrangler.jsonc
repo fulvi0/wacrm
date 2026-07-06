@@ -20,7 +20,7 @@
   "vars": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://yohiyzjgjntgbzubwlwz.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_v4Hpif865aE1iXKzgyT03g_Jj4lxgYQ",
-    "META_APP_ID": "1773799550459839"
-    // "NEXT_PUBLIC_SITE_URL": "https://wacrm.<subdomain>.workers.dev"  // add after first deploy, then redeploy
+    "META_APP_ID": "1773799550459839",
+    "NEXT_PUBLIC_SITE_URL": "https://wacrm.inboxcourier.workers.dev"
   }
 }
