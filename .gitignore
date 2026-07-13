@@ -2,6 +2,10 @@
 
 # dependencies
 /node_modules
+# This project uses npm (package-lock.json); bun is only a local runner here.
+# Keep bun's lockfile out of git so it can't drift from package-lock.json.
+/bun.lock
+/bun.lockb
 /.pnp
 .pnp.*
 .yarn/*
